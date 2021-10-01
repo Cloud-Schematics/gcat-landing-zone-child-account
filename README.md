@@ -47,8 +47,6 @@ The parent account is used to read the stored API key from the secrets manager a
 
 ---
 
----
-
 ## Access Groups
 
 The [iam](./iam) module creates any number of access groups, with any number of policies.

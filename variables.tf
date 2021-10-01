@@ -77,6 +77,7 @@ variable access_groups {
                         resource_group       = optional(string) # Name of the resource group the policy will apply to
                         resource_type        = optional(string) # Name of the resource type for the policy ex. "resource-group"
                         service              = optional(string) # Name of the service type for the policy ex. "cloud-object-storage"
+                        resource             = optional(string) # The resource of the policy definition
                         resource_instance_id = optional(string) # ID of a service instance to give permissions
                     })
                 })
@@ -96,41 +97,10 @@ variable access_groups {
                 )
             )
             account_management_policies = optional(list(string))
-            invite_users                = list(string) # Users to invite to the access group
+            invite_users                = optional(list(string)) # Users to invite to the access group
         })
     )
-    default     = [
-        {
-            name        = "admin"
-            description = "An example admin group"
-            policies    = [
-                {
-                    name = "admin_all"
-                    resources = {
-                        resource_group = "gcat-landing-zone-dev"
-                    }
-                    roles = ["Administrator","Manager"]
-                }
-            ]
-            dynamic_policies = []
-            invite_users = [ "test@test.test" ]
-        },
-        {
-          name        = "dev"
-          description = "A developer access group"
-          policies    = [
-            {
-              name      = "dev_view_vpc"
-              resources = {
-                resource_group = "gcat-landing-zone-dev"
-                service        = "id"
-              }
-              roles = ["Viewer"] 
-            }
-          ]
-          invite_users = ["test@test.test"]
-        }
-    ]
+    default     = []
 }
 
 ##############################################################################
