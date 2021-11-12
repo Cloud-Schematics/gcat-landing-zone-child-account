@@ -1,4 +1,4 @@
-# GCAT Landing Zone in Enterprise Child Account
+# Setting up VPC infrastructure from an Enterprise account
 
 This module does initial setup for an environment in an Enterprise Child Account from an Enterprise Parent Account using Secrets Manager.
 
